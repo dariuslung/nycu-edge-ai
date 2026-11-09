@@ -14,7 +14,26 @@ def tbl(rows, widths=None):
                            ("BACKGROUND", (0,0), (-1,0), colors.lightgrey), ("VALIGN", (0,0), (-1,-1), "TOP")]))
     return t
 
+def to_md(path, title, items):
+    import re
+    clean = lambda t: re.sub(r"</?b>", "**", t).replace("&lt;", "<")
+    out = [f"# {title}", "", "Student ID: 314561005", ""]
+    for kind, v in items:
+        if kind == "h":
+            out += [f"## {v}", ""]
+        elif kind == "p":
+            out += [clean(v), ""]
+        else:
+            rows = v[0] if isinstance(v, tuple) else v
+            out.append("| " + " | ".join(rows[0]) + " |")
+            out.append("|" + "---|" * len(rows[0]))
+            out += ["| " + " | ".join(r) + " |" for r in rows[1:]]
+            out.append("")
+    open(path, "w").write("\n".join(out))
+
+
 def build(path, title, items):
+    to_md(path.replace(".pdf", ".md"), title, items)
     doc = SimpleDocTemplate(path, pagesize=A4, leftMargin=2*cm, rightMargin=2*cm, topMargin=1.8*cm, bottomMargin=1.8*cm,
                             title=title, author="314561005")
     out = [Paragraph(title, H1), Paragraph("Student ID: 314561005", B), Spacer(1, 6)]
