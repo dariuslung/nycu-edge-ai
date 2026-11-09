@@ -1,0 +1,7 @@
+{
+  "thr_w": 0.012594882398843765,
+  "thr_a": 0.013022640720009804,
+  "frac_w": 0.45,
+  "frac_a": 0.4,
+  "source": "unit-Gaussian tiles, seed 0 (no model, no calibration data)"
+}

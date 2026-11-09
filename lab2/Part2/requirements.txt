@@ -1,0 +1,6 @@
+torch==2.5.1
+transformers==4.57.1
+huggingface_hub<1.0
+datasets<4
+accelerate
+numpy<2.3
