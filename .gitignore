@@ -21,3 +21,7 @@ lab1/sgemm_solution
 lab1/ptxas_info.txt
 # Nsight profiler reports (hundreds of MB; keep screenshots/ instead)
 lab1/reports/
+
+# --- lab2 (LLM compression) -----------------------------------------------------
+lab2/*.pth
+lab2/**/__pycache__/
